@@ -1,0 +1,78 @@
+<%- include ('partials/header') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">AUCTION</p>
+      <div class="list-group">
+        <li class="list-group-item"><a class="" href="/">Go Back</a></li>
+        <li class="list-group-item">Dummy data 2</li>
+        <li class="list-group-item">Dummy data 3</li>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <img
+          class="image-responsive"
+          src="<%= product.image %>"
+          alt="Image Not Available"
+        />
+        <div class="caption-full">
+          <h4 class="pull-right">Rs./day</h4>
+          <h1><a href="#"><%= product.name %></a></h1>
+          <p><%= product.descp %></p>
+          <p>
+            <em>sold by- <%= product.seller.username%></em>
+          </p>
+          <% if(currentUser && product.seller.id.equals(currentUser._id)){ %>
+            <form id="delete-form" action="/product/<%=product._id%>/delete?_method=DELETE" method="POST">
+              <a class="btn btn-warning" href="/product/<%= product._id %>/edit"
+                >Edit</a
+              >
+              <button class="btn btn-danger">Remove</button>
+            </form>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="card card-body bg-light">
+        <div class="">
+          <form
+            class="bid-form"
+            method="POST"
+            action="/product/<%= product._id %>/bid"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="bid[amount]"
+                placeholder="Enter Your Bid Amount"
+              />
+              <button class="btn btn-primary btn-block">Submit!</button>
+            </div>
+          </form>
+        </div>
+        <hr />
+
+        <% product.bids.forEach(function(bid){ %>
+        <div class="row">
+          <div class="col-md-12">
+            <strong><%= bid.buyer.username %></strong>
+            <span class="pull-right">added just now</span>
+            <p><%= bid.amount %></p>
+            <% if(currentUser && bid.buyer.id.equals(currentUser._id)){ %>
+            <form id="delete-bid" action="/product/<%=product._id%>/bid/<%=bid._id%>/delete?_method=DELETE" method="POST">
+              <button class="btn btn-danger">Delete Bid</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer') %>

@@ -1,7 +1,9 @@
 var express = require("express"),
   Product = require("../models/product"),
+  Bid = require("../models/bid"),
   request = require("request"),
-  router = express.Router();
+  router = express.Router(),
+  middleware = require("../middleware/index");
 
 router.get("/", function (req, res) {
   Product.find({}, function (err, allProducts) {

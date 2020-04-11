@@ -2,6 +2,7 @@ var express = require("express"),
   mongoose = require("mongoose"),
   passport = require("passport"),
   bodyParser = require("body-parser"),
+  methodOverride = require("method-override"),
   request = require("request"),
   flash = require("connect-flash"),
   User = require("./models/user"),
@@ -9,8 +10,8 @@ var express = require("express"),
   passportLocalMongoose = require("passport-local-mongoose");
 
 var indexRoutes = require("./routes/index"),
-  sellRoutes = require("./routes/sell"),
-  buyRoutes = require("./routes/buy"),
+  sellRoutes = require("./routes/seller"),
+  buyRoutes = require("./routes/buyer"),
   authRoutes = require("./routes/auth");
 
 var PORT = process.env.PORT || 69;
@@ -30,6 +31,7 @@ mongoose
 var app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 

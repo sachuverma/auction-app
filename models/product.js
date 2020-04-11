@@ -13,6 +13,12 @@ var ProductSchema = new mongoose.Schema({
     },
     username: String,
   },
+  bids: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Bid",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Product", ProductSchema);
