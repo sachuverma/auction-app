@@ -12,6 +12,12 @@ body {
   max-height: 40rem;
 }
 
+.crdcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
 .card-text {
   max-height: 10rem;
   overflow: hidden;
