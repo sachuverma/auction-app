@@ -18,13 +18,13 @@ router.post("/product/new", middleware.isLoggedIn, function (req, res) {
     price: req.body.product_price,
     image: req.body.product_image,
     type: req.body.product_type,
+    time: req.body.product_time,
     descp: req.body.product_descp,
     seller: {
       id: req.user._id,
       username: req.user.username,
     },
   });
-  console.log(req.user);
   Product.create(newProduct, function (err, newlyCreated) {
     if (err) {
       req.flash("error", "Error! Adding Product ");

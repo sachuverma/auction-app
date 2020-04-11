@@ -24,7 +24,12 @@
             <h1><a href="#"><%= product.name %></a></h1>
           </div>
           
-          <p><%= product.descp %></p>
+          <p>
+            <%= product.descp %> <hr>
+            <em>bid closes on - </em>
+            <%= product.time.substring(0,10) %> at 
+            <%= product.time.substring(11,5) %>
+          </p>
           <p>
             <em>sold by- <%= product.seller.username%></em>
           </p>

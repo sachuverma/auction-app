@@ -6,6 +6,7 @@ var ProductSchema = new mongoose.Schema({
   image: String,
   type: String,
   descp: String,
+  time: String,
   seller: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
