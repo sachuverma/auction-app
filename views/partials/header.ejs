@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AUCTION SITE</title>
+    <!-- font awesome cdn	 -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- bootstrap stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- my stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+  </head>
+  <body>
+    <div class="container main-container">
+      <!-- NAV BAR -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">AUCTION-SITE</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                Home
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/sell-product">
+                Sell Product
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </li>
+
+          </ul>
+          
+          <span class="navbar-text">
+            <ul class="navbar-nav mr-auto">
+              <%if(!currentUser){ %>
+              <li>
+                <a class="nav-link" href="/login">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  Login
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="/register">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                  Sign Up
+                </a>
+              </li>
+              <%} else { %>
+              <li>
+                <a class="nav-link" href="#">
+                  <%= currentUser.username%>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="/logout">
+                  Logout
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          </span>
+        </div>
+      </nav>
+
+      <div class="">
+        <% if(error && error.length>0){ %>
+        <div class="alert alert-danger"><%= error %></div>
+        <% } %> <% if(success && success.length>0){ %>
+        <div class="alert alert-success"><%= success %></div>
+        <% } %>
+      </div>
+  </body>
+</html>

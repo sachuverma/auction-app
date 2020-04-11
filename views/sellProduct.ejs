@@ -1,0 +1,51 @@
+<%- include ('partials/header') %>
+<div class="">
+  <h1>ADD PRODUCT DETAILS</h1>
+
+  <form class="container reg-form" action="/sell-product" method="POST">
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Product Name"
+        name="product_name"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="number"
+        placeholder="Starting Price"
+        name="product_price"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Add Image Link"
+        name="product_image"
+      />
+    </div>
+
+    <div class="form-group">
+      <select class="form-control" name="product_type">
+        <option value="electric">Electronics</option>
+        <option value="home">Home Item</option>
+        <option value="vehicle">Vehicle</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <textarea 
+        class="form-control" 
+        name="product_descp">Enter Product Description!
+      </textarea>  
+    </div>
+
+    <button type="submit" class="form-control btn btn-primary">Submit</button>
+  </form>
+</div>
+<%- include ('partials/footer') %>
