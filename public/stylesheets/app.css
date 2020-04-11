@@ -9,6 +9,16 @@ body {
 .card-container {
   margin: 10px auto;
   width: 18rem;
+  max-height: 40rem;
+}
+
+.card-text {
+  max-height: 10rem;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  width: 100%;
 }
 
 .reg-form {

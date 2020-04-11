@@ -18,9 +18,12 @@
           src="<%= product.image %>"
           alt="Image Not Available"
         />
-        <div class="caption-full">
-          <h4 class="pull-right">Rs./day</h4>
-          <h1><a href="#"><%= product.name %></a></h1>
+        <div class="caption">
+          <h4 class="pull-right">min bid- Rs. <%= product.price %></h4>
+          <div class="card-title font-weight-bold">
+            <h1><a href="#"><%= product.name %></a></h1>
+          </div>
+          
           <p><%= product.descp %></p>
           <p>
             <em>sold by- <%= product.seller.username%></em>
@@ -43,15 +46,13 @@
             method="POST"
             action="/product/<%= product._id %>/bid"
           >
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="bid[amount]"
-                placeholder="Enter Your Bid Amount"
-              />
-              <button class="btn btn-primary btn-block">Submit!</button>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-primary">Submit!</button>
+              </div>
+              <input type="text" class="form-control" name="bid[amount]" placeholder="Enter Your Bid Amount" >
             </div>
+            
           </form>
         </div>
         <hr />
