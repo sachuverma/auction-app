@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-12 leftcol">
       <p class="lead">AUCTION</p>
       <div class="list-group">
         <li class="list-group-item"><a class="" href="/">Go Back</a></li>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 col-sm-12 rightcol">
       <div class="thumbnail">
         <img
           class="image-responsive"
@@ -47,15 +47,15 @@
       <div class="card card-body bg-light">
         <div class="">
           <form
-            class="bid-form"
+            class=""
             method="POST"
             action="/product/<%= product._id %>/bid"
           >
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <button class="btn btn-primary">Submit!</button>
+                <button class="btn btn-primary bid-form">Submit!</button>
               </div>
-              <input type="text" class="form-control" name="bid[amount]" placeholder="Enter Your Bid Amount" >
+              <input type="text" class="form-control bid-form" name="bid[amount]" placeholder="Enter Your Bid Amount" >
             </div>
             
           </form>

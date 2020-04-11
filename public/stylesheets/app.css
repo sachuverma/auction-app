@@ -24,3 +24,25 @@ body {
 .reg-form {
   width: 35%;
 }
+
+@media (max-width: 1200px) {
+  .container {
+    min-width: 100%;
+    font-size: 130%;
+  }
+  .navbar {
+    font-size: 140%;
+  }
+
+  .leftcol {
+    min-width: 100%;
+  }
+
+  .rightcol {
+    min-width: 100%;
+  }
+
+  .form-control {
+    font-size: 110%;
+  }
+}
