@@ -25,13 +25,9 @@ body {
   width: 35%;
 }
 
-@media (max-width: 1200px) {
+@media (orientation: portrait) {
   .container {
     min-width: 100%;
-    font-size: 130%;
-  }
-  .navbar {
-    font-size: 140%;
   }
 
   .leftcol {
@@ -40,9 +36,5 @@ body {
 
   .rightcol {
     min-width: 100%;
-  }
-
-  .form-control {
-    font-size: 110%;
   }
 }
