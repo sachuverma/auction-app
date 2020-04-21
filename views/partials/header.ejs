@@ -231,12 +231,13 @@
     </div>
   </div>
 
-      <div class="">
-        <% if(error && error.length>0){ %>
-        <div class="alert alert-danger"><%= error %></div>
-        <% } %> <% if(success && success.length>0){ %>
-        <div class="alert alert-success"><%= success %></div>
-        <% } %>
-      </div>
-  </body>
+  <div class="">
+    <% if(error && error.length>0){ %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %> <% if(success && success.length>0){ %>
+    <div class="alert alert-success"><%= success %></div>
+    <% } %>
+  </div>
+
+</body>
 </html>

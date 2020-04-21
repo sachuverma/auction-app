@@ -5,9 +5,9 @@ var express = require("express"),
   middleware = require("../middleware/index");
 
 router.get("/product/new", middleware.isLoggedIn, function (req, res) {
-  if (req.user.type == "seller") res.render("sellProduct");
+  if (req.user.type == "seller") res.render("productform");
   else {
-    req.flash("error", "Are Not a Seller! Redirecting! ");
+    req.flash("error", "You are Not a Seller!");
     res.redirect("/");
   }
 });
@@ -29,7 +29,7 @@ router.post("/product/new", middleware.isLoggedIn, function (req, res) {
     if (err) {
       req.flash("error", "Error! Adding Product ");
       console.log(err);
-      res.redirect("/sell-product");
+      res.redirect("/");
     } else {
       req.flash("success", "Success! Added Product ");
       res.redirect("/");
@@ -63,7 +63,7 @@ router.delete(
       if (err) {
         console.log(err);
         req.flash("error", "Internal Error!");
-        res.redirect("/buy-product/" + req.params.id);
+        res.redirect("/product/" + req.params.id);
       } else {
         req.flash("success", "Product Removed!");
         res.redirect("/");
