@@ -9,6 +9,12 @@ var bidSchema = mongoose.Schema({
     },
     username: String,
   },
+  product: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  },
 });
 
 module.exports = mongoose.model("Bid", bidSchema);

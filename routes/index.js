@@ -110,9 +110,12 @@ router.post("/product/:id/bid", middleware.isLoggedIn, function (req, res) {
       Bid.create(req.body.bid, function (err, bid) {
         if (err) {
           console.log(err);
+          req.flash("error", "Error!");
+          res.redirect("/product/" + product._id);
         } else {
           bid.buyer.id = req.user._id;
           bid.buyer.username = req.user.username;
+          bid.product.id = product._id;
           bid.save();
           product.bids.push(bid);
           product.save();
