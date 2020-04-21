@@ -42,8 +42,9 @@
           <% } %>
         </div>
       </div>
-
+      
       <div class="card card-body bg-light">
+        <% if(currentUser && currentUser.type == "buyer") { %>
         <div class="">
           <form
             class=""
@@ -59,6 +60,9 @@
             
           </form>
         </div>
+        <% } else { %>
+        <div class="form-control"><h3>Buyer must login to bid</h3></div>
+        <% } %>
         <hr />
 
         <% product.bids.forEach(function(bid){ %>
