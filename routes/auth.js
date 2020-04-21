@@ -4,10 +4,6 @@ var express = require("express"),
   passport = require("passport");
 
 // Auth ROUTES
-// show sign up form
-router.get("/register", function (req, res) {
-  res.render("register");
-});
 
 // handle user sign up
 router.post("/register", function (req, res) {
@@ -30,10 +26,6 @@ router.post("/register", function (req, res) {
 });
 
 // LOGIN ROUTES
-// render login form
-router.get("/login", function (req, res) {
-  res.render("login");
-});
 
 // login logic
 // middleware
@@ -41,7 +33,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/login",
+    failureRedirect: "/",
   }),
   function (req, res) {}
 );
