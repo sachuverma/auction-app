@@ -4,7 +4,6 @@ var express = require("express"),
   passport = require("passport");
 
 // Auth ROUTES
-
 // handle user sign up
 router.post("/register", function (req, res) {
   var newUser = new User({
@@ -16,7 +15,7 @@ router.post("/register", function (req, res) {
   User.register(newUser, req.body.password, function (err, user) {
     if (err) {
       req.flash("error", err.message);
-      return res.render("register");
+      return res.redirect("/");
     }
     passport.authenticate("local")(req, res, function () {
       req.flash("success", "Welcome to Auction-Site! " + user.fullname);
@@ -26,11 +25,10 @@ router.post("/register", function (req, res) {
 });
 
 // LOGIN ROUTES
-
 // login logic
-// middleware
 router.post(
   "/login",
+  // middleware
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/",
@@ -42,6 +40,12 @@ router.post(
 router.get("/logout", function (req, res) {
   req.logout();
   req.flash("success", "Logged You Out!");
+  res.redirect("/");
+});
+
+//DEFAULT ROUTE HANDLER
+router.get("*", function (req, res) {
+  req.flash("error", "404 Error! Page Doesn't Exist!");
   res.redirect("/");
 });
 

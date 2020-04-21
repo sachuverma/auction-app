@@ -10,8 +10,6 @@ var express = require("express"),
   passportLocalMongoose = require("passport-local-mongoose");
 
 var indexRoutes = require("./routes/index"),
-  sellRoutes = require("./routes/seller"),
-  buyRoutes = require("./routes/buyer"),
   authRoutes = require("./routes/auth");
 
 var PORT = process.env.PORT || 69;
@@ -58,8 +56,6 @@ app.use(function (req, res, next) {
 
 app.use(indexRoutes);
 app.use(authRoutes);
-app.use(sellRoutes);
-app.use(buyRoutes);
 
 app.listen(PORT, function () {
   console.log(`server started at port: ${PORT}`);
